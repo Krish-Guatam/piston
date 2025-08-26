@@ -1,26 +1,14 @@
 version: '3.2'
 
 services:
-  api:
-    image: ghcr.io/engineer-man/piston
-    container_name: piston_api
-    restart: always
-    privileged: true
-    ports:
-    - "${PORT}:${PORT}"
-    volumes:
-      - ./data/piston/packages:/piston/packages
-      - ./data/piston/cache:/piston/cache    # 👈 build cache
-    tmpfs:
-      - /tmp:exec
-
-  worker:
-    image: ghcr.io/engineer-man/piston
-    container_name: piston_worker
-    restart: always
-    privileged: true
-    volumes:
-      - ./data/piston/packages:/piston/packages
-      - ./data/piston/cache:/piston/cache    # 👈 build cache
-    tmpfs:
-      - /tmp:exec
+    api:
+        image: ghcr.io/engineer-man/piston
+        container_name: piston_api
+        restart: always
+        privileged: true
+        ports:
+            - "${PORT}:${PORT}"
+        volumes:
+            - ./data/piston/packages:/piston/packages
+        tmpfs:
+            - /tmp:exec
