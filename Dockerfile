@@ -1,9 +1,10 @@
 FROM ghcr.io/engineer-man/piston:latest
 
-# Use dynamic port (Render sets PORT automatically)
-ENV PORT $PORT
-EXPOSE $PORT
+# If you have custom packages/config, copy them in
+# COPY ./packages /piston/packages
+# COPY ./config.yaml /piston/config.yaml
 
-# Use the default entrypoint of the image
-# No CMD needed, or you can explicitly run "piston"
-CMD ["piston"]
+# Piston listens on 2000 by default
+EXPOSE 2000
+
+CMD ["python3", "main.py"]
